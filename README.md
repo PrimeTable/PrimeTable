@@ -14,7 +14,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(event
         datetime: datetime
     };
 
-    fetch("[YOUR_WEBHOOK_URL_HERE](https://script.google.com/macros/s/AKfycbz-sKIAtCZLrM0rz_U4R1lwv-aUlNEYcES0SVMXm60iScHS0ce1wX0zgD8tWxqJZhX6Zg/exec)", {
+    fetch(["[YOUR_WEBHOOK_URL_HERE](https://script.google.com/macros/s/AKfycbz-sKIAtCZLrM0rz_U4R1lwv-aUlNEYcES0SVMXm60iScHS0ce1wX0zgD8tWxqJZhX6Zg/exec)"](https://script.google.com/macros/s/AKfycbz-sKIAtCZLrM0rz_U4R1lwv-aUlNEYcES0SVMXm60iScHS0ce1wX0zgD8tWxqJZhX6Zg/exec), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData)
