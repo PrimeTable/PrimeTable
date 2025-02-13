@@ -1,16 +1,31 @@
-## Hi there 👋
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var guests = document.getElementById("guests").value;
+    var datetime = document.getElementById("datetime").value;
 
-<!--
-**PrimeTable/PrimeTable** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+    var bookingData = {
+        name: name,
+        email: email,
+        guests: guests,
+        datetime: datetime
+    };
 
-Here are some ideas to get you started:
+    fetch("[YOUR_WEBHOOK_URL_HERE](https://script.google.com/macros/s/AKfycbz-sKIAtCZLrM0rz_U4R1lwv-aUlNEYcES0SVMXm60iScHS0ce1wX0zgD8tWxqJZhX6Zg/exec)", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData)
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("confirmationMessage").innerText = "Your table has been booked successfully!";
+        document.getElementById("confirmationMessage").style.display = "block";
+        document.getElementById("bookingForm").reset();
+    })
+    .catch(error => console.error("Error:", error));
+});
+</script>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
